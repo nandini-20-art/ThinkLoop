@@ -109,18 +109,15 @@ st.info("""
 # Split the bottom section into two equal columns
 col1, col2 = st.columns(2)
 
-# --- Column 1: Historical Log ---
+# --- Column 1: Real EV Data ---
 with col1:
-    st.markdown("##### Past Analysis Log")
-    log_data = {
-        "Date": ["2026-04-20", "2026-04-22", "2026-04-24", "2026-04-26"],
-        "Primary Emotion": ["Overwhelm", "Confusion", "Clarity", "Anxiety"],
-        "Intensity (1-10)": [9, 6, 3, 7],
-        "Trigger": ["Exams", "Relationship", "Therapy", "Work Schedule"],
-        "AI Feedback": ["Step away for 10 mins.", "Ask clarifying questions.", "Maintain routine.", "Write priorities."]
-    }
-    df_log = pd.DataFrame(log_data)
-    st.dataframe(df_log, use_container_width=True)
+    st.markdown("##### 🚗 Live EV Data")
+    
+    # 1. Load the real dataset we downloaded from Kaggle
+    df_ev = pd.read_csv("ev_data.csv")
+    
+    # 2. Display just the first 50 rows so the app doesn't freeze!
+    st.dataframe(df_ev.head(50), use_container_width=True)
 
 # --- Column 2: Habit Tracker ---
 with col2:
