@@ -113,11 +113,20 @@ col1, col2 = st.columns(2)
 with col1:
     st.markdown("##### 🚗 Live EV Data")
     
-    # 1. Load the real dataset we downloaded from Kaggle
+    # Load the real dataset
     df_ev = pd.read_csv("ev_data.csv")
     
-    # 2. Display just the first 50 rows so the app doesn't freeze!
-    st.dataframe(df_ev.head(50), use_container_width=True)
+    # 1. Get a list of all unique car brands in the dataset
+    car_brands = df_ev['Make'].dropna().unique()
+    
+    # 2. Create the interactive dropdown menu
+    selected_brand = st.selectbox("Select an EV Brand:", car_brands)
+    
+    # 3. Filter the dataset to ONLY show rows matching the selected brand
+    filtered_data = df_ev[df_ev['Make'] == selected_brand]
+    
+    # 4. Display the newly filtered data
+    st.dataframe(filtered_data.head(50), use_container_width=True)
 
 # --- Column 2: Habit Tracker ---
 with col2:
