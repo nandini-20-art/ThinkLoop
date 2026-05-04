@@ -127,6 +127,14 @@ with col1:
     
     # 4. Display the newly filtered data
     st.dataframe(filtered_data.head(50), use_container_width=True)
+#Visuals added
+    st.markdown("##### 📊 Top 10 EV Brands")
+    
+    # 1. Count how many vehicles each brand has and take the top 10
+    top_brands = df_ev['Make'].value_counts().head(10)
+    
+    # 2. Tell Streamlit to draw a bar chart!
+    st.bar_chart(top_brands)
 
 # --- Column 2: Habit Tracker ---
 with col2:
