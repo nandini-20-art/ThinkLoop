@@ -129,7 +129,17 @@ with col1:
     
     # Load the real dataset
     df_ev = pd.read_csv("ev_data.csv")
+    # Load the real dataset
+    df_ev = pd.read_csv("ev_data.csv")
     
+
+    # 1. Calculate the total number of rows (vehicles) in the dataset
+    total_vehicles = len(df_ev)
+    
+    # 2. Display it as a beautiful dashboard metric
+    st.metric(label="Total Vehicles Analyzed", value=f"{total_vehicles:,}")
+    
+# Visuals added:    
     # 1. Get a list of all unique car brands in the dataset
     car_brands = df_ev['Make'].dropna().unique()
     
