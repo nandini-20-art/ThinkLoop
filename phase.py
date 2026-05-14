@@ -2,6 +2,20 @@ import streamlit as st
 import pandas as pd
 from google import genai
 
+st.title("🌐 ThinkLoop: EV Intelligence Dashboard")
+
+st.markdown("""
+### Why this data matters
+The transition to **Electric Vehicles (EVs)** is one of the biggest shifts in modern engineering. 
+This dashboard analyzes a massive dataset of thousands of vehicles to answer key questions:
+*   **Who is winning?** (Which manufacturers dominate the market?)
+*   **Where are they?** (Geographic distribution of EV adoption.)
+*   **What is the tech?** (Understanding battery ranges and vehicle types.)
+
+*Created by Nandini Rout | Data Science Phase 2*
+""")
+
+st.divider() # Adds a clean line to separate the story from the data
 # ==========================================
 # PAGE CONFIGURATION
 # ==========================================
